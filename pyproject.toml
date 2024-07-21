@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mihoyo_auto_login"
+authors = [{ name = "Alex Wang", email = "wxngalex@gmail.com" }]
+description = "Autologin for daily rewards on Mihoyo games"
+requires-python = ">=3.10"
+# keywords = ["genshin", "login", "hoyoverse"]
+license = { text = "MIT" }
+classifiers = ["Programming Language :: Python :: 3"]
+dynamic = ["version", "readme"]
+dependencies = [
+    # "genshin>=1.7,<2.0"
+    "genshin @ git+https://github.com/thesadru/genshin.py@dev",
+    "typer>=0.12,<1.0",
+    # "pydantic",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "coverage",
+    "flake8",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "setuptools",
+    "setuptools-scm",
+]
+
+# [project.urls]
+# Homepage = ""
+# Repository = ""
+
+# [project.optional-dependencies]
+# pdf = ["ReportLab>=1.2", "RXP"]
+# rest = ["docutils>=0.3", "pack ==1.1, ==1.3"]
+
+[project.scripts]
+hoyo-login = "mihoyo_auto_login.main:app"
+
+[tool.setuptools_scm]
+# version_scheme = "guess-next-tag"
+# write_to = "src/mihoyo_auto_login/_version.py"
+
+[tool.setuptools.dynamic]
+readme = { file = "README.md", content-type = "text/markdown" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
