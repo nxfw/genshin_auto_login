@@ -14,7 +14,9 @@ class User(BaseModel):
     uid: int = Field(..., gt=0, description="User ID must be a positive integer")
     token: Annotated[
         str,
-        StringConstraints(strip_whitespace=True, pattern=r"^[a-zA-Z0-9_.]+$"),
+        StringConstraints(strip_whitespace=True, 
+                        #   pattern=r"^[a-zA-Z0-9_.]+$"
+                          ),
     ] = Field(..., description="Token must be obtained from hoyoverse")
     games: Optional[List[Game]] = None
 
