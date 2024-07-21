@@ -15,7 +15,7 @@ dependencies = [
     # "genshin>=1.7,<2.0"
     "genshin @ git+https://github.com/thesadru/genshin.py@dev",
     "typer>=0.12,<1.0",
-    # "pydantic",
+    "tabulate",
 ]
 
 [project.optional-dependencies]
@@ -50,3 +50,7 @@ readme = { file = "README.md", content-type = "text/markdown" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+
+[tool.black]
+line-length = 79

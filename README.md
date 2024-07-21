@@ -17,8 +17,12 @@ Create the credentials file
 users:
   - uid: 123123
     token: my_token123
+    games: 
+      - "genshin"
+      - "nap"
   - uid: 456456
     token: another_token456
+    # default game is genshin
 ```
 
 Running
