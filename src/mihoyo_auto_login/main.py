@@ -6,9 +6,13 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, ValidationError, StringConstraints
 from typing_extensions import Annotated
 from tabulate import tabulate
+from datetime import datetime
+
+# from loguru import logger
 
 app = typer.Typer()
 
+# logger.add()
 
 class User(BaseModel):
     uid: int = Field(..., gt=0, description="User ID must be a positive integer")
@@ -61,7 +65,7 @@ async def process_users(users: list[User], default_game: Optional[Game]) -> list
     return await asyncio.gather(*tasks)
 
 def print_results(results: list[tuple]):
-    headers = ["UID", "Game", "Result"]
+    headers = ["UID", "Game", f"Result ({datetime.now()})"]
     print(tabulate(results, headers=headers, tablefmt="grid"))
 
 if __name__ == "__main__":
