@@ -12,8 +12,8 @@ license = { text = "MIT" }
 classifiers = ["Programming Language :: Python :: 3"]
 dynamic = ["version", "readme"]
 dependencies = [
-    # "genshin>=1.7,<2.0"
-    "genshin @ git+https://github.com/thesadru/genshin.py@dev",
+    "genshin>=1.7,<2.0",
+    # "genshin @ git+https://github.com/thesadru/genshin.py@dev",
     "typer>=0.12,<1.0",
     "loguru",
     "tabulate",
